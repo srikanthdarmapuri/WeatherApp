@@ -1,0 +1,40 @@
+<div class="container">
+    <div class "row">
+        <div class="jumbotron">
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon" id="basic-addon1">Change City</span>
+                <input id="autocomplete" type="text" ng-model="$ctrl.currentCity.name" class="form-control" placeholder="Enter City Name Here.." aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group radio">
+                <input id="unit-f" type="radio" ng-model="$ctrl.unit" ng-change="$ctrl.changeWeather()" name="unit" value="imperial">
+                <label for="unit-f">Fahrenheit</label>
+                <input id="unit-c" type="radio" ng-model="$ctrl.unit" ng-change="$ctrl.changeWeather()" name="unit" value="metric">
+                <label for="unit-c">Celsius</label>
+            </div>
+            <h3>{{$ctrl.currentCity.name}}</h3>
+            <div class="list-group">
+                <div class="list-group-item row" ng-repeat="weather in $ctrl.fiveDaysWeather">
+                    <div class="col-md-4">
+                        <span>{{$ctrl.formatDate(weather.dt)}}</span>
+                        <span></span>
+
+                    </div>
+                    <div class="col-md-8">
+                        <div class="row">
+                            <span>{{weather.temp.min}} {{$ctrl.unit == 'metric' ? 'C' : 'F'}}</span>
+                            <span>{{weather.temp.max}} {{$ctrl.unit == 'metric' ? 'C' : 'F'}}</span>
+                            <span>{{weather.weather[0].description}}</span>
+                        </div>
+                        <div class="row">
+                            <span>{{weather.speed}} m/h</span>
+                        </div>
+                        <div class="row">
+                            <span>Clouds {{weather.clouds}} %, </span>
+                            <span>{{weather.pressure}} hpa</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
