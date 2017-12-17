@@ -14,11 +14,6 @@
             <h3>{{$ctrl.currentCity.name}}</h3>
             <div class="list-group">
                 <div class="list-group-item row" ng-repeat="weather in $ctrl.fiveDaysWeather">
-                    <div class="col-md-4">
-                        <span>{{$ctrl.formatDate(weather.dt)}}</span>
-                        <span></span>
-
-                    </div>
                     <div class="col-md-8">
                         <div class="row">
                             <span>{{weather.temp.min}} {{$ctrl.unit == 'metric' ? 'C' : 'F'}}</span>

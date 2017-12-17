@@ -30,7 +30,7 @@ angular.
           self.changeWeather();
         };
 
-        this.onUnitChanged = function() {
+        this.onUnitChanged = function () {
           this.changeWeather();
         }
 
@@ -44,21 +44,20 @@ angular.
             },
             function (resp, status, header, config) {
               console.log(resp);
-            }
-            );
+            });
         }
 
-        this.formatDate = function(dt){
+        this.formatDate = function (dt) {
           var dte = new Date(dt * 1000)
           return getDay(dte.getDay()) + " " + dte.getDate() + " " + getMonth(dte.getMonth());
         }
 
-        getDay = function(day){
-          var dayData = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+        getDay = function (day) {
+          var dayData = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
           return dayData[day];
         }
-        getMonth = function(mon){
-          var monthData = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+        getMonth = function (mon) {
+          var monthData = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
           return monthData[mon];
         }
       }]
