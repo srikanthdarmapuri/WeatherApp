@@ -35,16 +35,27 @@ angular.
         }
 
         this.changeWeather = function () {
-          $http.get('http://api.openweathermap.org/data/2.5/forecast/daily?lat=' + self.currentCity.lat
-            + '&lon=' + self.currentCity.lng + '&cnt=5&apikey=8caa3a62ba1f3b52d931888f38d1bc75&units='
-            + self.unit)
-            .then(
-            function (resp, status, headers) {
-              self.fiveDaysWeather = resp.data.list;
-            },
-            function (resp, status, header, config) {
-              console.log(resp);
-            });
+          // $http.get('http://api.openweathermap.org/data/2.5/forecast/daily?lat=' + self.currentCity.lat
+          //   + '&lon=' + self.currentCity.lng + '&cnt=5&apikey=&units='
+          //   + self.unit)
+          //   .then(
+          //   function (resp, status, headers) {
+          //     self.fiveDaysWeather = resp.data.list;
+          //   },
+          //   function (resp, status, header, config) {
+          //     console.log(resp);
+          //   });
+
+          $http.get('http://api.openweathermap.org/data/2.5/weather?lat=' + self.currentCity.lat
+          + '&lon=' + self.currentCity.lng + '&cnt=5&apikey=8caa3a62ba1f3b52d931888f38d1bc75&units='
+          + self.unit)
+          .then(
+          function (resp, status, headers) {
+            self.todayWeather = resp.data;
+          },
+          function (resp, status, header, config) {
+            console.log(resp);
+          });
         }
 
         this.formatDate = function (dt) {
